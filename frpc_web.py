@@ -940,6 +940,7 @@ DASHBOARD_HTML = r"""<!DOCTYPE html>
                 <option value="http">HTTP (Web)</option>
                 <option value="https">HTTPS</option>
                 <option value="stcp">STCP (秘密TCP)</option>
+                <option value="xtcp">XTCP (穿透P2P)</option>
             </select>
         </div>
         <div class="form-grid">
@@ -1456,7 +1457,7 @@ DASHBOARD_HTML = r"""<!DOCTYPE html>
         const type = document.getElementById('p_type').value;
         document.getElementById('remotePortGroup').style.display = (type === 'tcp' || type === 'udp') ? 'block' : 'none';
         document.getElementById('domainGroup').style.display = (type === 'http' || type === 'https') ? 'block' : 'none';
-        document.getElementById('secretGroup').style.display = (type === 'stcp') ? 'block' : 'none';
+        document.getElementById('secretGroup').style.display = (type === 'stcp'|| type==='xtcp') ? 'block' : 'none';
     }
     
     function editProxy(index) {
@@ -1505,7 +1506,7 @@ DASHBOARD_HTML = r"""<!DOCTYPE html>
         } else if (type === 'http' || type === 'https') {
             const dom = document.getElementById('p_domains').value;
             if (dom) newProxy.customDomains = dom.split(',').map(s=>s.trim());
-        } else if (type === 'stcp') {
+        } else if (type === 'stcp'||type === 'xtcp') {
             newProxy.secretKey = document.getElementById('p_secretKey').value;
         }
 
