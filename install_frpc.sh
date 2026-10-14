@@ -2,7 +2,7 @@
 
 # ================== 全局配置 ==================
 DEFAULT_FRP_VERSION="0.52.3"
-WEB_PANEL_URL="http://107.149.212.83/frp/frpc_web.py"
+WEB_PANEL_URL="https://raw.githubusercontent.com/totti2202344/frpc-web/main/frp-web.py"
 INSTALL_DIR="/opt/frp"
 WEB_PORT=7600
 SERVICE_NAME="frpc"
